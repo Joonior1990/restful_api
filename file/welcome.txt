@@ -1,0 +1,27 @@
+Работа с api:
+get:
+    '/' приветствие
+    '/protected/book/' весь перечень книг {genre(жанр), name}
+    '/protected/book/genre/' все жанры {id, genre}
+    '/protected/book/genre/:id' все книги жанра 
+    '/protected/book/:id' конкретная книга по id
+
+post: * Content-Type: application/json
+    '/protected/book/genre/' - создаем новый жанр 'string';
+    {"genre" : "data"}
+
+    '/protected/book/' - создаем новую книгу
+    {"genre" : [id], "name": [string], "autor": [string],
+    "description": [text], "createDate": [string]} - все поля обязательны
+
+patch: * Content-Type: application/json
+    '/protected/book/genre/' - обновление названия жанра
+    {"id" : [numeric], "name": [string]}
+
+    '/protected/book/:id' - обновление данных книги
+    {"name": [string], "autor": [string],
+    "description": [text], "createDate": [string]} - обязательно хотя бы одно поле для заполнения
+
+delete:
+     '/protected/book/:id' - удаление выбранной книги
+     '/protected/' - удаление всех данных
