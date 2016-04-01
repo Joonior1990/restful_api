@@ -3,7 +3,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var restify = require('restify');
 var actionFile = require('./actionFile');
 
-var user = {login: 'admin', pass: 'root'};
+var user = {login: 'admin', pass: 'root1'};
 
 var analogBD = './file/bd.json';
 var welcome = './file/welcome.txt';
@@ -35,7 +35,7 @@ rest.use(function(req, res, next) {
     	return next();
 
     else 
-    	return res.status(403);
+    	return res.send(403, 'access is limited');
   }
 
   return next();
